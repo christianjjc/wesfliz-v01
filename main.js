@@ -1,19 +1,19 @@
-/* (async () => {
+const getPeliculas = async () => {
+  let result = [];
   await fetch("https://www.omdbapi.com/?apikey=24eff419&s=movie&r=json&page=1")
-  //await fetch("peliculas.json")
     .then((res) => res.json())
     .then((res) => {
-      peliculas = res;
+      result = res.Search;
     });
-  console.log(peliculas.Search);
-})(); */
+  return result;
+};
 
-const muestraPeliculas = async (maxPfila, idContenedor, clasDiv) => {
-  let cantFilas = Math.ceil(peliculas.length / maxPfila);
+const muestraPeliculas = async (array, maxPfila, idContenedor, clasDiv) => {
+  let cantFilas = Math.ceil(array.length / maxPfila);
   let html = "";
   for (let i = 1; i <= cantFilas; i++) {
     html += `<div class="${clasDiv}">`;
-    imgs = peliculas.slice((i - 1) * maxPfila, i * maxPfila);
+    imgs = array.slice((i - 1) * maxPfila, i * maxPfila);
     imgs.map((el) => {
       html += `<img id="${el.imdbID}" class="imgpelicula" src="${el.Poster}" alt="${el.Title}">`;
     });
@@ -34,7 +34,8 @@ const eventoImg = async () => {
 };
 
 (async () => {
-  await muestraPeliculas(6, "container-desktop", "lista");
-  await muestraPeliculas(2, "container-mobile", "lista-mobile");
+  const peliculas = await getPeliculas();
+  await muestraPeliculas(peliculas, 6, "container-desktop", "lista");
+  await muestraPeliculas(peliculas, 2, "container-mobile", "lista-mobile");
   await eventoImg();
 })();
