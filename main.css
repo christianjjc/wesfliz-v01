@@ -26,7 +26,14 @@ body {
   height: 450px;
 }
 
-.lista img {
+.lista-mobile {
+  display: flex;
+  width: 100%;
+  height: 450px;
+}
+
+.lista .imgpelicula,
+.lista-mobile .imgpelicula {
   width: 0px;
   flex-grow: 5;
   object-fit: cover;
@@ -34,7 +41,8 @@ body {
   transition: 0.5s ease;
 }
 
-.lista img:hover {
+.lista .imgpelicula:hover,
+.lista-mobile .imgpelicula:hover {
   width: 300px;
   opacity: 1;
   object-position: center;
@@ -44,6 +52,9 @@ body {
 @media screen and (min-width: 768px) {
   .lista {
     display: flex;
+  }
+  .lista-mobile {
+    display: none;
   }
 }
 
