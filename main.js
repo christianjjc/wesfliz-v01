@@ -1,27 +1,33 @@
-const getPeliculas = async () => {
+const getPeliculas = async (valor) => {
   let result = [];
   await fetch(
     "https://raw.githubusercontent.com/christianjjc/wesfliz-v01/main/peliculas.json"
   )
     .then((res) => res.json())
     .then((res) => {
-      result = res.Search;
+      result = res.Search.filter((e) => {
+        e.Title.includes(valor);
+      });
     });
   return result;
 };
 
 const muestraPeliculas = async (array, maxPfila, idContenedor, clasDiv) => {
-  let cantFilas = Math.ceil(array.length / maxPfila);
-  let html = "";
-  for (let i = 1; i <= cantFilas; i++) {
-    html += `<div class="${clasDiv}">`;
-    imgs = array.slice((i - 1) * maxPfila, i * maxPfila);
-    imgs.map((el) => {
-      html += `<img id="${el.imdbID}" class="imgpelicula" src="${el.Poster}" alt="${el.Title}">`;
-    });
-    html += `</div>`;
+  try {
+    let cantFilas = Math.ceil(array.length / maxPfila);
+    let html = "";
+    for (let i = 1; i <= cantFilas; i++) {
+      html += `<div class="${clasDiv}">`;
+      const imgs = array.slice((i - 1) * maxPfila, i * maxPfila);
+      imgs.map((el) => {
+        html += `<img id="${el.imdbID}" class="imgpelicula" src="${el.Poster}" alt="${el.Title}">`;
+      });
+      html += `</div>`;
+    }
+    document.getElementById(idContenedor).innerHTML = html;
+  } catch (error) {
+    console.error(errorsito);
   }
-  document.getElementById(idContenedor).innerHTML = html;
 };
 
 /* Agregamos eventos a las imagenes de cada encuentro */
@@ -39,5 +45,5 @@ const eventoImg = async () => {
   const peliculas = await getPeliculas();
   await muestraPeliculas(peliculas, 6, "container-desktop", "lista");
   await muestraPeliculas(peliculas, 2, "container-mobile", "lista-mobile");
-  await eventoImg();
+  //await eventoImg();
 })();
