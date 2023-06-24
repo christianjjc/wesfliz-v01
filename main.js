@@ -18,3 +18,5 @@ const eventoImg = (() => {
     });
   }
 })();
+
+const oo = [];

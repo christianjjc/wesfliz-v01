@@ -1,4 +1,0 @@
-Here is your key: 24eff419
-
-https://www.omdbapi.com/?apikey=24eff419&s=movie&r=json&page=1
-
