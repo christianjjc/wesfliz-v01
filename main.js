@@ -1,13 +1,13 @@
-const getPeliculas = async (valor) => {
+const getPeliculas = async (valor = "") => {
   let result = [];
   await fetch(
     "https://raw.githubusercontent.com/christianjjc/wesfliz-v01/main/peliculas.json"
   )
     .then((res) => res.json())
     .then((res) => {
-      result = res.Search.filter((e) => {
-        e.Title.includes(valor);
-      });
+      result = res.Search.filter((e) =>
+        e.Title.toUpperCase().includes(valor.toUpperCase())
+      );
     });
   return result;
 };
@@ -26,12 +26,11 @@ const muestraPeliculas = async (array, maxPfila, idContenedor, clasDiv) => {
     }
     document.getElementById(idContenedor).innerHTML = html;
   } catch (error) {
-    console.error(errorsito);
+    console.error(error);
   }
 };
 
-/* Agregamos eventos a las imagenes de cada encuentro */
-const eventoImg = async () => {
+const eventoImg = () => {
   let imgBtn = document.getElementsByClassName("imgpelicula");
   for (let i = 0; i < imgBtn.length; i++) {
     imgBtn[i].addEventListener("click", () => {
@@ -41,9 +40,49 @@ const eventoImg = async () => {
   }
 };
 
-(async () => {
-  const peliculas = await getPeliculas();
-  await muestraPeliculas(peliculas, 6, "container-desktop", "lista");
-  await muestraPeliculas(peliculas, 2, "container-mobile", "lista-mobile");
-  //await eventoImg();
-})();
+let glbViewportWidth = window.innerWidth;
+let glbResized = false;
+window.addEventListener("resize", () => {
+  glbResized = true;
+  glbViewportWidth = window.innerWidth;
+});
+
+window.addEventListener("mouseout", () => {
+  if (glbResized) {
+    cargaDatos();
+    glbResized = false;
+  }
+});
+
+async function cargaDatos(inicio = true, valor = "") {
+  let vp = 0;
+  try {
+    if (glbViewportWidth < 577) {
+      vp = 2;
+    } else if (glbViewportWidth < 1025) {
+      vp = 4;
+    } else {
+      vp = 6;
+    }
+    const peliculas = await getPeliculas(!inicio ? valor : "");
+    await muestraPeliculas(peliculas, vp, "container-desktop", "lista");
+    eventoImg();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+const txtBuscar = document.getElementById("txtBusqueda");
+txtBuscar.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    const valor = txtBuscar.value.trim();
+    if (valor.length >= 1) {
+      cargaDatos(false, valor);
+    } else {
+      alert("Para iniciar la búsqueda debe ingresar al menos 2 caracteres.");
+      cargaDatos();
+    }
+  }
+});
+
+cargaDatos();
