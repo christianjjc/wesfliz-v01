@@ -12,7 +12,7 @@
 const eventoImg = (() => {
   let imgBtn = document.getElementsByClassName(`imgpelicula`);
   for (let i = 0; i < imgBtn.length; i++) {
-    imgBtn[i].addEventListener(`click`, () => {
+    imgBtn[i].addEventListener("click", () => {
       const alt = imgBtn[i].alt;
       alert(alt);
     });
