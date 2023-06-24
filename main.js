@@ -8,8 +8,13 @@
   console.log(peliculas.Search);
 })(); */
 
-const contenedor = document.getElementById("listadoPeliculas");
-
-const listarPeliculas = (array) => {
-  array.map((el, index) => {});
-};
+/* Agregamos eventos a las imagenes de cada encuentro */
+const eventoImg = (() => {
+  let imgBtn = document.getElementsByClassName(`imgpelicula`);
+  for (let i = 0; i < imgBtn.length; i++) {
+    imgBtn[i].addEventListener(`click`, () => {
+      const alt = imgBtn[i].alt;
+      alert(alt);
+    });
+  }
+})();
