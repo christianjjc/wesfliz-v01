@@ -1,6 +1,8 @@
 const getPeliculas = async () => {
   let result = [];
-  await fetch("https://www.omdbapi.com/?apikey=24eff419&s=movie&r=json&page=1")
+  await fetch(
+    "https://raw.githubusercontent.com/christianjjc/wesfliz-v01/main/peliculas.json"
+  )
     .then((res) => res.json())
     .then((res) => {
       result = res.Search;
