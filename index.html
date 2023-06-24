@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script defer src="./peliculas.js"></script>
+    <script defer src="./main.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="fixed-top bg-black">
+            <nav class="navbar navbar-expand-md border-bottom border-bottom-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img class="logo" src="./Netflix_Logo_RGB.png" alt="Netflix">
+                    </a>
+                    <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="col-12 d-flex justify-content-center">
+                            <div class="col-12 col-sm-10">
+                                <input type="text" class="form-control w-100"
+                                    placeholder="Ingrese el nombre de la película y presione Enter"
+                                    aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main id="contenedor-main">
+        <section>
+            <div id="listadoPeliculas" class="d-flex flex-row justify-content-center flex-wrap gap-3">
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMTg4MDk1ODExN15BMl5BanBnXkFtZTgwNzIyNjg3MDE@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMTgxMDczMTA5N15BMl5BanBnXkFtZTcwMzk1MzMzMw@@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMGEzZjdjMGQtZmYzZC00N2I4LThiY2QtNWY5ZmQ3M2ExZmM4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BNjk4MzVlM2UtZGM0ZC00M2M1LThkMWEtZjUyN2U2ZTc0NmM5XkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMTg4MDk1ODExN15BMl5BanBnXkFtZTgwNzIyNjg3MDE@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMTgxMDczMTA5N15BMl5BanBnXkFtZTcwMzk1MzMzMw@@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMGEzZjdjMGQtZmYzZC00N2I4LThiY2QtNWY5ZmQ3M2ExZmM4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BNjk4MzVlM2UtZGM0ZC00M2M1LThkMWEtZjUyN2U2ZTc0NmM5XkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMGEzZjdjMGQtZmYzZC00N2I4LThiY2QtNWY5ZmQ3M2ExZmM4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMTg4MDk1ODExN15BMl5BanBnXkFtZTgwNzIyNjg3MDE@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMTgxMDczMTA5N15BMl5BanBnXkFtZTcwMzk1MzMzMw@@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMGEzZjdjMGQtZmYzZC00N2I4LThiY2QtNWY5ZmQ3M2ExZmM4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BNjk4MzVlM2UtZGM0ZC00M2M1LThkMWEtZjUyN2U2ZTc0NmM5XkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMTg4MDk1ODExN15BMl5BanBnXkFtZTgwNzIyNjg3MDE@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMTgxMDczMTA5N15BMl5BanBnXkFtZTcwMzk1MzMzMw@@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMGEzZjdjMGQtZmYzZC00N2I4LThiY2QtNWY5ZmQ3M2ExZmM4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BNjk4MzVlM2UtZGM0ZC00M2M1LThkMWEtZjUyN2U2ZTc0NmM5XkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMGEzZjdjMGQtZmYzZC00N2I4LThiY2QtNWY5ZmQ3M2ExZmM4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMTg4MDk1ODExN15BMl5BanBnXkFtZTgwNzIyNjg3MDE@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMTgxMDczMTA5N15BMl5BanBnXkFtZTcwMzk1MzMzMw@@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMGEzZjdjMGQtZmYzZC00N2I4LThiY2QtNWY5ZmQ3M2ExZmM4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BNjk4MzVlM2UtZGM0ZC00M2M1LThkMWEtZjUyN2U2ZTc0NmM5XkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMTg4MDk1ODExN15BMl5BanBnXkFtZTgwNzIyNjg3MDE@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMTgxMDczMTA5N15BMl5BanBnXkFtZTcwMzk1MzMzMw@@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMGEzZjdjMGQtZmYzZC00N2I4LThiY2QtNWY5ZmQ3M2ExZmM4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BNjk4MzVlM2UtZGM0ZC00M2M1LThkMWEtZjUyN2U2ZTc0NmM5XkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMGEzZjdjMGQtZmYzZC00N2I4LThiY2QtNWY5ZmQ3M2ExZmM4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMTg4MDk1ODExN15BMl5BanBnXkFtZTgwNzIyNjg3MDE@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMTgxMDczMTA5N15BMl5BanBnXkFtZTcwMzk1MzMzMw@@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMGEzZjdjMGQtZmYzZC00N2I4LThiY2QtNWY5ZmQ3M2ExZmM4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BNjk4MzVlM2UtZGM0ZC00M2M1LThkMWEtZjUyN2U2ZTc0NmM5XkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMTg4MDk1ODExN15BMl5BanBnXkFtZTgwNzIyNjg3MDE@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMTgxMDczMTA5N15BMl5BanBnXkFtZTcwMzk1MzMzMw@@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMGEzZjdjMGQtZmYzZC00N2I4LThiY2QtNWY5ZmQ3M2ExZmM4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BNjk4MzVlM2UtZGM0ZC00M2M1LThkMWEtZjUyN2U2ZTc0NmM5XkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+                <div>
+                    <img class="imgpelicula"
+                        src="https://m.media-amazon.com/images/M/MV5BMGEzZjdjMGQtZmYzZC00N2I4LThiY2QtNWY5ZmQ3M2ExZmM4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+                        alt="pelicula 1">
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+    </footer>
+
+</body>
+
+</html>
