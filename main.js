@@ -1,17 +1,7 @@
-const peliculas = [];
-
-const container = document.querySelector("#container-desktop");
-
-window.addEventListener("scroll", () => {
-  const { clientHeight, scrollHeight, scrollTop } = document.documentElement;
-  scrollTop + clientHeight > scrollHeight && setTimeout(addContainer, 500);
-});
-
-const addContainer = () => {
-  const box = document.createElement("div");
-  box.className = "lista nueva-caja";
-  container.appendChild(box);
-};
+let peliculas = [];
+let cantidadContenedores = 0;
+let contenedorActual = 4;
+let cmaxporfila = 0;
 
 const getPeliculas = async (valor = "") => {
   let result = [];
@@ -27,9 +17,45 @@ const getPeliculas = async (valor = "") => {
   return result;
 };
 
+window.addEventListener("scroll", () => {
+  const { clientHeight, scrollHeight, scrollTop } = document.documentElement;
+  scrollTop + clientHeight > scrollHeight && setTimeout(addContainer, 500);
+});
+
+const addContainer = () => {
+  const spinner = document.querySelector("#spinner");
+  if (contenedorActual < cantidadContenedores) {
+    spinner.classList.remove("d-none");
+    const container = document.querySelector("#container-desktop");
+    const box = document.createElement("div");
+    box.className = "lista nueva-caja";
+    container.appendChild(box);
+    contenedorActual++;
+    setTimeout(() => {
+      try {
+        let html = "";
+        const imgs = peliculas.slice(
+          (contenedorActual - 1) * cmaxporfila,
+          contenedorActual * cmaxporfila
+        );
+        imgs.map((el) => {
+          html += `<img id="${el.imdbID}" class="imgpelicula" src="${el.Poster}" alt="${el.Title}" data-bs-toggle="modal" data-bs-target="#modalDetalle">`;
+        });
+        box.innerHTML = html;
+        contenedorActual++;
+      } catch (error) {
+        console.error(error);
+      }
+      eventoImg(obtenerDetalle);
+    }, 500);
+  } else {
+    spinner.classList.add("d-none");
+  }
+};
+
 const muestraPeliculas = async (array, maxPfila, idContenedor, clasDiv) => {
   try {
-    let cantFilas = Math.ceil(array.length / maxPfila);
+    //let cantFilas = Math.ceil(array.length / maxPfila);
     let html = "";
     for (let i = 1; i <= 3; i++) {
       html += `<div class="${clasDiv}">`;
@@ -49,6 +75,9 @@ let glbViewportWidth = window.innerWidth;
 let glbResized = false;
 window.addEventListener("resize", () => {
   glbResized = true;
+  let cantidadContenedores = 0;
+  let contenedorActual = 4;
+  let cmaxporfila = 0;
   glbViewportWidth = window.innerWidth;
 });
 
@@ -95,19 +124,20 @@ const eventoImg = (fn) => {
 };
 
 async function cargaDatos(inicio = true, valor = "") {
-  let vp = 0;
   try {
     if (glbViewportWidth < 577) {
-      vp = 2;
+      cmaxporfila = 2;
     } else if (glbViewportWidth < 1025) {
-      vp = 4;
+      cmaxporfila = 4;
     } else {
-      vp = 6;
+      cmaxporfila = 6;
     }
-    const peliculas = await getPeliculas(!inicio ? valor : "");
+    peliculas = await getPeliculas(!inicio ? valor : "");
+    console.log(peliculas);
     localStorage.clear;
     localStorage.setItem("peliculas", JSON.stringify(peliculas));
-    await muestraPeliculas(peliculas, vp, "container-desktop", "lista");
+    cantidadContenedores = Math.ceil(peliculas.length / cmaxporfila);
+    await muestraPeliculas(peliculas, cmaxporfila, "container-desktop", "lista");
     eventoImg(obtenerDetalle);
   } catch (error) {
     console.error(error);
