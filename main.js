@@ -24,8 +24,8 @@ window.addEventListener("scroll", () => {
 
 const addContainer = () => {
   const spinner = document.querySelector("#spinner");
+  spinner.classList.remove("d-none");
   if (contenedorActual < cantidadContenedores) {
-    spinner.classList.remove("d-none");
     const container = document.querySelector("#container-desktop");
     const box = document.createElement("div");
     box.className = "lista nueva-caja";
@@ -49,7 +49,7 @@ const addContainer = () => {
       eventoImg(obtenerDetalle);
     }, 500);
   } else {
-    spinner.classList.add("d-none");
+    //spinner.classList.add("d-none");
   }
 };
 
@@ -75,9 +75,9 @@ let glbViewportWidth = window.innerWidth;
 let glbResized = false;
 window.addEventListener("resize", () => {
   glbResized = true;
-  let cantidadContenedores = 0;
-  let contenedorActual = 4;
-  let cmaxporfila = 0;
+  cantidadContenedores = 0;
+  contenedorActual = 4;
+  cmaxporfila = 0;
   glbViewportWidth = window.innerWidth;
 });
 
@@ -148,6 +148,9 @@ const txtBuscar = document.getElementById("txtBusqueda");
 txtBuscar.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     const valor = txtBuscar.value.trim();
+    cantidadContenedores = 0;
+    contenedorActual = 4;
+    cmaxporfila = 0;
     cargaDatos(false, valor);
   }
 });
