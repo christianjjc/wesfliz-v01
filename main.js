@@ -3,6 +3,11 @@ let cantidadContenedores = 0;
 let contenedorActual = 4;
 let cmaxporfila = 0;
 
+const getRandomColor = () => {
+  const h = Math.floor(Math.random() * 360);
+  return `hsl(${h}deg, 90%, 85%)`;
+};
+
 const getPeliculas = async (valor = "") => {
   let result = [];
   await fetch(
@@ -28,7 +33,8 @@ const addContainer = () => {
   if (contenedorActual < cantidadContenedores) {
     const container = document.querySelector("#container-desktop");
     const box = document.createElement("div");
-    box.className = "lista nueva-caja";
+    box.className = "lista";
+    box.style.backgroundColor = getRandomColor();
     container.appendChild(box);
     contenedorActual++;
     setTimeout(() => {
@@ -41,13 +47,14 @@ const addContainer = () => {
         imgs.map((el) => {
           html += `<img id="${el.imdbID}" class="imgpelicula" src="${el.Poster}" alt="${el.Title}" data-bs-toggle="modal" data-bs-target="#modalDetalle">`;
         });
+        box.style.backgroundColor = `#000000`;
         box.innerHTML = html;
         contenedorActual++;
       } catch (error) {
         console.error(error);
       }
       eventoImg(obtenerDetalle);
-    }, 500);
+    }, 1000);
   } else {
     //spinner.classList.add("d-none");
   }
@@ -133,7 +140,6 @@ async function cargaDatos(inicio = true, valor = "") {
       cmaxporfila = 6;
     }
     peliculas = await getPeliculas(!inicio ? valor : "");
-    console.log(peliculas);
     localStorage.clear;
     localStorage.setItem("peliculas", JSON.stringify(peliculas));
     cantidadContenedores = Math.ceil(peliculas.length / cmaxporfila);
