@@ -16,6 +16,11 @@ body {
   height: auto;
 }
 
+.imgDetalle {
+  width: 100%;
+  height: auto;
+}
+
 #contenedor-main {
   margin-top: 120px;
 }
