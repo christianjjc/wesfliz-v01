@@ -56,7 +56,7 @@ const muestraDetalle = (i, array) => {
   html += `<p><span class="fs-6">Id:</span> ${array[i].imdbID}</p>`;
   html += `<p><span class="fs-6">Año:</span> ${array[i].Year}</p>`;
   html += `<p><span class="fs-6">Tipo:</span> ${array[i].Type}</p>`;
-  html += `<div class="d-grid gap-3  col-6 mx-auto">`;
+  html += `<div class="d-grid gap-3  col-12 col-md-6 mx-auto">`;
   html += `<a class="btn btn-warning" href="${link}" target="_blank">Ver detalles en iMDB</a>`;
   html += `<a class="btn btn-warning" href="https://www.youtube.com/results?search_query=${array[i].Title}+trailer" target="_blank">Buscar trailer en Youtube</a>`;
   html += `</div>`;
