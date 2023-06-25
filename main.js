@@ -41,7 +41,9 @@ window.addEventListener("resize", () => {
 
 window.addEventListener("mouseout", () => {
   if (glbResized) {
-    cargaDatos();
+    const valor = txtBuscar.value.trim();
+    cargaDatos(false, valor);
+    //cargaDatos(false);
     glbResized = false;
   }
 });
@@ -103,12 +105,7 @@ const txtBuscar = document.getElementById("txtBusqueda");
 txtBuscar.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     const valor = txtBuscar.value.trim();
-    if (valor.length >= 1) {
-      cargaDatos(false, valor);
-    } else {
-      alert("Para iniciar la búsqueda debe ingresar al menos 2 caracteres.");
-      cargaDatos();
-    }
+    cargaDatos(false, valor);
   }
 });
 
