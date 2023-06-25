@@ -9,6 +9,7 @@ html {
 
 body {
   background-color: black;
+  font-family: roboto;
 }
 
 .logo {
@@ -44,6 +45,30 @@ body {
   opacity: 1;
   object-position: center;
   filter: contrast(120%);
+}
+
+.nueva-caja {
+  background: -webkit-linear-gradient(to right, #00dbde, #fc00ff);
+  background: linear-gradient(to right, #00dbde, #fc00ff);
+}
+
+.spinner {
+  margin: 30px auto;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  animation: spin 1s linear infinite;
+  border-bottom-color: #614ad6;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media screen and (prefers-reduced-motion: reduce) {

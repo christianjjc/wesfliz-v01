@@ -1,5 +1,18 @@
 const peliculas = [];
 
+const container = document.querySelector("#container-desktop");
+
+window.addEventListener("scroll", () => {
+  const { clientHeight, scrollHeight, scrollTop } = document.documentElement;
+  scrollTop + clientHeight > scrollHeight && setTimeout(addContainer, 500);
+});
+
+const addContainer = () => {
+  const box = document.createElement("div");
+  box.className = "lista nueva-caja";
+  container.appendChild(box);
+};
+
 const getPeliculas = async (valor = "") => {
   let result = [];
   await fetch(
@@ -18,7 +31,7 @@ const muestraPeliculas = async (array, maxPfila, idContenedor, clasDiv) => {
   try {
     let cantFilas = Math.ceil(array.length / maxPfila);
     let html = "";
-    for (let i = 1; i <= cantFilas; i++) {
+    for (let i = 1; i <= 3; i++) {
       html += `<div class="${clasDiv}">`;
       const imgs = array.slice((i - 1) * maxPfila, i * maxPfila);
       imgs.map((el) => {
